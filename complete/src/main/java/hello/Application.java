@@ -32,19 +32,19 @@ public class Application {
 		return args -> {
 
 			// Setup for restTemplate using US ZipCode API
-//			Response response = restTemplate.getForObject(
-//					"http://services.groupkt.com/state/get/USA/all",
-//					Response.class);
-//			log.info(response.toString());
+			Response response = restTemplate.getForObject(
+					"http://services.groupkt.com/state/get/USA/all",
+					Response.class);
+			log.info(response.toString());
 
 			// Setup for restTemplate using our User API
-			// User user = restTemplate.getForObject(
-			// "http://localhost:8080/api/user/1", User.class);
-			// log.info(user.toString());
+			 User user_get = restTemplate.getForObject(
+			 "http://localhost:8080/api/user/1", User.class);
+			 log.info(user_get.toString());
 
 //			Setup for restTemplate to Post using User API
-			User user = new User("Username","FirstName","LastName"); 
-			 User newUser = restTemplate.postForObject("http://localhost:8080/api/user",user, User.class);
+			User user_post = new User("Username","FirstName","LastName"); 
+			 User newUser = restTemplate.postForObject("http://localhost:8080/api/user",user_post, User.class);
 			 log.info(newUser.toString());
 
 		};
